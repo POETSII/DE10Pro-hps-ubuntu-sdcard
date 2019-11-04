@@ -4,20 +4,23 @@ pipeline {
 	stages {
 		stage('Pull artifacts') {
 			steps {
-				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'thunderclap-fpga-arria10/master'
-				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'thunderclap-qemu/master'
+//				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'CPU1-DE10-multi-synth/master'
+//				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'thunderclap-qemu/master'
+				copyArtifacts filter: 'cheri/boards/terasic_de10pro_sx/output_files/DE10_Pro.sof', fingerprintArtifacts: true, flatten: true, projectName: 'CPU1-DE10-multi-synth/cheri=beri,cheri_dimm=1GB,dcache=writethrough,invalidate=push,label=bionic,multi=1/', selector: lastSuccessful()
 			}
 		}
 
 		stage ('Build Intel A10 SoC devkit') {
 			steps {
 				sh '''#!/bin/bash
-                                      rm -f a10socdevkit-sd.img.xz || true
-				      source $SOCEDS_DEST_ROOT/env.sh && ./build_thunderclap_ubuntu.sh intel-a10soc-devkit
-				      mv sdimage.img.xz a10socdevkit-sd.img.xz
+                                      #rm -f a10socdevkit-sd.img.xz || true
+				      #source $SOCEDS_DEST_ROOT/env.sh && 
+					./build_thunderclap_ubuntu.sh intel-a10soc-devkit
+				      #mv sdimage.img.xz a10socdevkit-sd.img.xz
 				'''
 			}
 		}
+/*
 		stage ('Build Enclustra AA1/PE1') {
 			steps {
 				sh '''#!/bin/bash
@@ -27,7 +30,7 @@ pipeline {
 				'''
 			}
 		}
-
+*/
 
 	}
 	post {
