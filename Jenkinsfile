@@ -6,7 +6,7 @@ pipeline {
 			steps {
 //				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'CPU1-DE10-multi-synth/master'
 //				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'thunderclap-qemu/master'
-				copyArtifacts filter: 'cheri/boards/terasic_de10pro_sx/output_files/DE10_Pro.sof', fingerprintArtifacts: true, flatten: true, projectName: 'CPU1-DE10-multi-synth/cheri=beri,cheri_dimm=1GB,dcache=writethrough,invalidate=push,label=bionic,multi=1/', selector: lastSuccessful()
+				copyArtifacts filter: 'cheri/boards/terasic_de10pro_sx/output_files/DE10_Pro.sof', fingerprintArtifacts: true, projectName: 'CPU1-DE10-multi-synth/cheri=beri,cheri_dimm=1GB,dcache=writethrough,invalidate=push,label=bionic,multi=1/', selector: lastSuccessful()
 			}
 		}
 
