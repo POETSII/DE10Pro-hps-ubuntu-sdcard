@@ -2,6 +2,8 @@
 
 FPGA=$1
 
+source /local/ecad/setup.bash 19.2pro
+
 function umount_multiple
 {
 	DIR=$1
