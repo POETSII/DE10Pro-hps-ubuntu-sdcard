@@ -10,11 +10,11 @@ pipeline {
 			steps {
 //				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'CPU1-DE10-multi-synth/master'
 //				copyArtifacts filter: '**', fingerprintArtifacts: true, projectName: 'thunderclap-qemu/master'
-				copyArtifacts filter: 'cheri/boards/terasic_de10pro_sx/output_files/DE10_Pro.sof', fingerprintArtifacts: true, projectName: "CPU1-DE10-multi-synth/cheri=${CHERI},cheri_dimm=1GB,dcache=writethrough,invalidate=push,label=bionic,multi=${MULTI}/", selector: lastSuccessful()
+				copyArtifacts filter: 'cheri/boards/terasic_de10pro_sx/output_files/DE10_Pro.sof', fingerprintArtifacts: true, projectName: "CPU1-DE10-multi-synth/cheri=${env.CHERI},cheri_dimm=1GB,dcache=writethrough,invalidate=push,label=bionic,multi=${env.MULTI}/", selector: lastSuccessful()
 			}
 		}
 
-		stage ("Build ${CHERI} with ${MULTI} cores") {
+		stage ("Build ${env.CHERI} with ${env.MULTI} cores") {
 			steps {
 				sh '''#!/bin/bash
 				      IMAGEFILE="s10-${CHERI}-multi${MULTI}-sd.img.xz"
