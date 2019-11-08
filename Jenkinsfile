@@ -14,7 +14,7 @@ pipeline {
 			}
 		}
 
-		stage ("Building")
+		stage ("Building") {
 			steps {
 				println "Building ${env.CHERI} with ${env.MULTI} cores" 
 				sh '''#!/bin/bash
