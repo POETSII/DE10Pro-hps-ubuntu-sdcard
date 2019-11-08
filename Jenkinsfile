@@ -14,8 +14,9 @@ pipeline {
 			}
 		}
 
-		stage ("Build ${env.CHERI} with ${env.MULTI} cores") {
+		stage ("Building")
 			steps {
+				println "Building ${env.CHERI} with ${env.MULTI} cores" 
 				sh '''#!/bin/bash
 				      IMAGEFILE="s10-${CHERI}-multi${MULTI}-sd.img.xz"
                                       rm -f $IMAGEFILE || true
