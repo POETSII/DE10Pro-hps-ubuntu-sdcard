@@ -41,7 +41,7 @@ pipeline {
 	}
 	post {
 		always {
-			archiveArtifacts artifacts: "*-sd.img.xz", fingerprint:true 
+			archiveArtifacts artifacts: "*-sd.img.xz,cheri/boards/terasic_de10pro_sx/output_files/*.rbf,cheri/boards/terasic_de10pro_sx/output_files/*-hps.sof", fingerprint:true 
 		}
 	}
 }
