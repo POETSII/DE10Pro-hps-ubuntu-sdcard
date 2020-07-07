@@ -21,7 +21,7 @@ pipeline {
 				      IMAGEFILE="s10-${CHERI}-multi${MULTI}-sd.img.xz"
                                       rm -f $IMAGEFILE || true
 				      #source $SOCEDS_DEST_ROOT/env.sh && 
-				      ./build_thunderclap_ubuntu.sh intel-a10soc-devkit
+				      ./build_sdcard.sh intel-a10soc-devkit
 				      mv sdimage.img.xz $IMAGEFILE
 				'''
 			}
@@ -31,7 +31,7 @@ pipeline {
 			steps {
 				sh '''#!/bin/bash
                                       rm -f enclustra-sd.img.xz || true
-				      source $SOCEDS_DEST_ROOT/env.sh && ./build_thunderclap_ubuntu.sh enclustra-mercury-aa1-pe1
+				      source $SOCEDS_DEST_ROOT/env.sh && ./build_sdcard.sh enclustra-mercury-aa1-pe1
 				      mv sdimage.img.xz enclustra-sd.img.xz
 				'''
 			}
