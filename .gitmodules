@@ -1,3 +1,3 @@
 [submodule "scripts"]
 	path = scripts
-	url = https://github.com/CTSRD-CHERI/socfpga-ubuntu-sdcard.git
+	url = https://github.com/POETSII/DE10Pro-hps-ubuntu-sdcard-scripts.git
